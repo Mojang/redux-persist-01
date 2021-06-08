@@ -77,7 +77,7 @@ export default function createPersistoid(config: PersistConfig): Persistoid {
 
     if (endState !== undefined) {
       try {
-        stagedState[key] = serialize(endState)
+        stagedState[key] = serialize(endState, key)
       } catch (err) {
         console.error(
           'redux-persist/createPersistoid: error serializing state',
@@ -103,7 +103,7 @@ export default function createPersistoid(config: PersistConfig): Persistoid {
     })
 
     writePromise = storage
-      .setItem(storageKey, serialize(stagedState))
+      .setItem(storageKey, serialize(stagedState, storageKey))
       .catch(onWriteFail)
   }
 

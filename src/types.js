@@ -27,11 +27,12 @@ export type PersistConfig = {
   deserialize?: boolean | Function,
   timeout?: number,
   writeFailHandler?: Function,
+  ignorePersist?: (state: State, action: Action) => Boolean,
 }
 
 export type PersistorOptions = {
   enhancer?: Function,
-  manualPersist?: boolean
+  manualPersist?: boolean,
 }
 
 export type Storage = {
