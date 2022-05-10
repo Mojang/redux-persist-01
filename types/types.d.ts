@@ -49,6 +49,7 @@ declare module "redux-persist/es/types" {
 
   interface PersistorOptions {
     enhancer?: StoreEnhancer<any>;
+    manualPersist?: boolean;
   }
 
   interface Storage {
@@ -121,7 +122,7 @@ declare module "redux-persist/es/types" {
   type PersistorAction =
     | RehydrateAction
     | RegisterAction
-  ;
+    ;
 
   interface PersistorState {
     registry: Array<string>;
